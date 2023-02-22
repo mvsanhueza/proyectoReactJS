@@ -1,0 +1,117 @@
+.container{
+    background-color: linear-gradient(45deg,#EEEEEE,#FAF8F9,#FFFFFF);
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+.navBarItems{
+    max-width: 1140px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+}
+
+.menu_icon{
+    display: none;
+    
+}
+
+.navIcon{
+    height: 50px;
+    justify-self: start;
+    margin-left: 10%;
+}
+
+
+.fa-bars{
+    font-size: 1.6rem;
+    color: #3e3681ff;
+    transition: all 0.3s ease;    
+}
+
+.icon_rotate{
+    transform: rotate(90deg);
+}
+
+.nav_menu{
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 70vw;
+    justify-content: end;
+    margin-right: 2rem;
+}
+
+.nav_links{
+    color: #3e3681ff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 4px solid transparent;
+}
+
+.nav_links:hover{
+    border-bottom: 4px solid #f68a7fff;
+    transition: all 0.2s ease-out;
+    color: #f68a7fff;
+}
+
+.nav_links_mobile{
+    display: none;
+}
+
+.nav_cart{
+    margin-right: 5%;
+}
+
+@media screen and (max-width:960px) {
+    .navbarItems{
+        position: relative;
+    }
+
+    .navIcon{
+        margin-left: 0;
+    }
+
+    .nav_menu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 150px;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;   
+        justify-content: start;     
+    }
+
+    .nav_menu.active{
+        background: #fff;
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav_links{
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table; 
+    }   
+
+    .menu_icon{
+        display: block;
+        cursor: pointer;
+        margin-left: 10%;
+    }
+    
+}
