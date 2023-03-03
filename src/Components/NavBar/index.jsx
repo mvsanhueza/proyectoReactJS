@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import "./navbar.css";
-import CartWidget from '../CartWidget/CartWidget';
+import CartWidget from '../CartWidget';
 import logo from '../../assets/img/Logotipo-horizontal.png';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -10,17 +11,19 @@ const NavBar = () => {
   const menuItems = [
     {
       title: "Tienda",
-      url: "#",
+      url: "/",
     },
     {
       title: "Nosotros",
-      url: "#",
+      url: "/Nosotros",
     },
     {
       title: "Contacto",
-      url: "#",
+      url: "/Contacto",
     }
   ];
+
+  
 
   //User state para la versión mobile
   const [state, setState] = useState(false);
@@ -35,12 +38,21 @@ const NavBar = () => {
         <div className="menu_icon" onClick={handleClick}>
           <i className={"fa-solid fa-bars" + (state ? " icon_rotate" : "")}></i>
         </div>
-        <img src={logo} alt="logo" className="navIcon" />
+        <Link to="/">
+          <img src={logo} alt="logo" className="navIcon" />
+        </Link>
+        
         <ul className={state ? 'nav_menu active' : 'nav_menu'}>
           {
             menuItems.map((item, index) => {
               return (
-                <li key={index}><a className='nav_links' href={item.url}>{item.title}</a></li>
+                <li>
+                <NavLink to={item.url} className={({isActive})=> isActive ? 'nav_links_active' : 'nav_links'}>
+                  {item.title}
+                </NavLink>
+                </li>
+                
+                //<li key={index}><a className='nav_links' href={item.url}>{item.title}</a></li>
               )
             })}
         </ul>

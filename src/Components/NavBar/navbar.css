@@ -63,6 +63,16 @@
     color: #f68a7fff;
 }
 
+.nav_links_active {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: 4px solid #f68a7fff;
+    transition: all 0.2s ease-out;
+    color: #f68a7fff;
+}
+
 .nav_links_mobile{
     display: none;
 }
