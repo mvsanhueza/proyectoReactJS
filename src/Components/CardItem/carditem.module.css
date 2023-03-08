@@ -1,0 +1,18 @@
+.cardHeader{
+    font-size: 1.2rem;
+    color: #3e3681ff;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+.container{
+    height: 100%;
+}
+
+.cardContent{
+    font-size: 1rem;
+    color: #3e3681ff;
+    font-weight: regular;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
