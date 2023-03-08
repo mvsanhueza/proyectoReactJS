@@ -6,7 +6,7 @@ import styles from './carditem.module.css';
 const CardItem = ({product}) => {
   return (
     <Card className={styles.container}>
-      <Link to={`item/${product.id}`} style={{textDecoration: 'none'}}>
+      <Link to={`/item/${product.id}`} style={{textDecoration: 'none'}}>
         <CardMedia
           component="img"
           sizes='(max-width: 300px) 100vw, 300px'

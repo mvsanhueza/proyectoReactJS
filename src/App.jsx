@@ -34,16 +34,50 @@ function App() {
       descripcion: "Año 1400. Tu nombre es Abelard Lavel, un caballero asentado en Paris. Desde niño has tenido sueños proféticos y extraños sobre crímenes del pasado y del futuro. Has conseguido usar tu poder para hacer el bien, resolviendo misterios que nadie más podría. Ahora gracias a tu creciente reputación, las gentes de Paris buscan tu ayuda. ¿Acudirás en su auxilio?",
       youtubeLink: "https://www.youtube.com/embed/0Q6ezIoYy4k",    
     },
+    {
+      nombre: "Azul Pabellón de Verano",
+      precio: "36.990",
+      id: "4",
+      categoria: "Estrategia",
+      img: "/src/assets/img/ImgProducts/azul_pabellon.png",
+      descripcion: "En Azul – Pabellón de Verano, los jugadores tienen la tarea de construir los pisos de la obra maestra sin construir del Rey. Usando la misma mecánica de selección de la serie Azul, los jugadores deben seleccionar cuidadosamente los materiales más bellos y evitar el despilfarro de suministros. Sólo los mejores artesanos estarán a la altura del desafío.",
+      youtubeLink: "https://www.youtube.com/embed/WOoKrjIkMxU",      
+    },
+    {
+      nombre: "Love Letter Edición Portátil",
+      precio: "12.990",
+      id: "5",
+      categoria: "Party Game",
+      img: "/src/assets/img/ImgProducts/love_letter.png",
+      descripcion: "Love Letter es un juego de riesgo, deducción y suerte, con reglas sencillas que crean interacciones dinámicas y divertidas entre los jugadores, que deberán intentar entregar su carta de amor en las manos de la Princesa mientras mantienen las cartas de otros jugadores alejadas. ¿Podrás superar a tus amigos y ganarte la confianza de la noble princesa?",
+      youtubeLink: "https://www.youtube.com/embed/NQcQDyoo_H0",
+    },
   ]
+
+  const categoriesName = [... new Set(products.map(product => product.categoria))]
+  const categories = categoriesName.map((categoria,index)=>{
+    return {
+      id: index + 1,
+      nombre: categoria,
+      url: '/category/'+ (index + 1),
+    }
+  })
+
+  console.log(categories);
+
+
   return (
     <div className="App">
-        <NavBar/>
+        <NavBar categorias={categories}/>
         <Routes>
           <Route path='/' element={
-          <ItemListContainer productos = {products}/>
+          <ItemListContainer products = {products} categories={categories}/>
           }/>
-          <Route path='/item/:id' element={<ItemDetailContainer products={products} />}          
+          <Route path='/item/:id' element={<ItemDetailContainer products={products} categories={categories} />}          
           />
+          <Route path='/category/:id' element={<ItemListContainer products={products} categories={categories}/>}          
+          />
+          
         </Routes>        
     </div>
   )

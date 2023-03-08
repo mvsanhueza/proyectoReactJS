@@ -5,25 +5,7 @@ import logo from '../../assets/img/Logotipo-horizontal.png';
 import { Link, NavLink } from 'react-router-dom';
 
 
-const NavBar = () => {
-
-  //Lista de botones para el menú
-  const menuItems = [
-    {
-      title: "Tienda",
-      url: "/",
-    },
-    {
-      title: "Nosotros",
-      url: "/Nosotros",
-    },
-    {
-      title: "Contacto",
-      url: "/Contacto",
-    }
-  ];
-
-  
+const NavBar = ({categorias}) => {
 
   //User state para la versión mobile
   const [state, setState] = useState(false);
@@ -44,15 +26,13 @@ const NavBar = () => {
         
         <ul className={state ? 'nav_menu active' : 'nav_menu'}>
           {
-            menuItems.map((item, index) => {
+            categorias.map((categoria) => {
               return (
                 <li>
-                <NavLink to={item.url} className={({isActive})=> isActive ? 'nav_links_active' : 'nav_links'}>
-                  {item.title}
+                <NavLink to={categoria.url} className={({isActive})=> isActive ? 'nav_links_active' : 'nav_links'}>
+                  {categoria.nombre}
                 </NavLink>
-                </li>
-                
-                //<li key={index}><a className='nav_links' href={item.url}>{item.title}</a></li>
+                </li>            
               )
             })}
         </ul>
