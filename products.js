@@ -16,8 +16,8 @@ const products = [
         categoria: "Estrategia",
         img: "https://i.imgur.com/wOVrxAp.png",
         descripcion: "¡Aventureros al Tren! Europa te invita a una nueva aventura en tren a lo largo y ancho de la Europa de fin de siglo, desde las escarpadas laderas de Edimburgo hasta los soleados muelles de Constantinopla, desde los polvorientos callejones de Pamplona hasta una estación azotada por el viento en Berlín. ¿Te arriesgarás a un viaje a través de los oscuros túneles de Suiza? ¿Te subirás al ferry del Mar Negro? ¿O construirás estaciones de tren en las grandes capitales de los antiguos imperios? ¡Tu siguiente movimiento puede convertirte en el mayor magnate ferroviario de Europa!",
-        youtubeLink: "https://www.youtube.com/embed/lOP8ZjkN7gc",   
-        stock: 10,   
+        youtubeLink: "https://www.youtube.com/embed/lOP8ZjkN7gc",
+        stock: 10,
     },
     {
         nombre: "Crónicas del Crimen 1400",
@@ -25,8 +25,8 @@ const products = [
         categoria: "Scape Room",
         img: "https://i.imgur.com/Jo44B6T.png",
         descripcion: "Año 1400. Tu nombre es Abelard Lavel, un caballero asentado en Paris. Desde niño has tenido sueños proféticos y extraños sobre crímenes del pasado y del futuro. Has conseguido usar tu poder para hacer el bien, resolviendo misterios que nadie más podría. Ahora gracias a tu creciente reputación, las gentes de Paris buscan tu ayuda. ¿Acudirás en su auxilio?",
-        youtubeLink: "https://www.youtube.com/embed/0Q6ezIoYy4k",   
-        stock: 10, 
+        youtubeLink: "https://www.youtube.com/embed/0Q6ezIoYy4k",
+        stock: 10,
     },
     {
         nombre: "Azul Pabellón de Verano",
@@ -34,7 +34,7 @@ const products = [
         categoria: "Estrategia",
         img: "https://i.imgur.com/dUlzJ7L.png",
         descripcion: "En Azul – Pabellón de Verano, los jugadores tienen la tarea de construir los pisos de la obra maestra sin construir del Rey. Usando la misma mecánica de selección de la serie Azul, los jugadores deben seleccionar cuidadosamente los materiales más bellos y evitar el despilfarro de suministros. Sólo los mejores artesanos estarán a la altura del desafío.",
-        youtubeLink: "https://www.youtube.com/embed/WOoKrjIkMxU",      
+        youtubeLink: "https://www.youtube.com/embed/WOoKrjIkMxU",
         stock: 10,
     },
     {
@@ -378,6 +378,6 @@ const products = [
         youtubeLink: "https://www.youtube.com/embed/vhpkpO91_mc",
         stock: 10,
     },
-  ];
+];
 
-  
+export default products;
