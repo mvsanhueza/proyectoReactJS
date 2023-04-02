@@ -7,7 +7,7 @@ import styles from './itemlistcontainer.module.css';
 const ItemListContainer = ({ products, categories }) => {
 
   const { id } = useParams();
-  const category = categories.find((category) => category.id == id);
+  const category = categories.find((category) => category.nombre == id);
 
   if (category != undefined) {
     products = products.filter((product) => product.categoria == category.nombre);
@@ -18,7 +18,7 @@ const ItemListContainer = ({ products, categories }) => {
       <ul className={styles.contenedor}>
         {
           products.map((producto) => (
-            <li className={styles.item}>
+            <li className={styles.item} key={producto.id}>
               <CardItem key={producto.id} product={producto} />
             </li>
 

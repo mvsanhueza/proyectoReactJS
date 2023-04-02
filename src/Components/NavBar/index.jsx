@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "./navbar.css";
 import CartWidget from '../CartWidget';
 import logo from '../../assets/img/Logotipo-horizontal.png';
@@ -14,6 +14,8 @@ const NavBar = ({categorias}) => {
     setState(!state);
   }
 
+  
+
   return (
     <div className="container">
       <nav className="navBarItems">
@@ -28,7 +30,7 @@ const NavBar = ({categorias}) => {
           {
             categorias.map((categoria) => {
               return (
-                <li>
+                <li key={categoria.nombre}>
                 <NavLink to={categoria.url} className={({isActive})=> isActive ? 'nav_links_active' : 'nav_links'}>
                   {categoria.nombre}
                 </NavLink>

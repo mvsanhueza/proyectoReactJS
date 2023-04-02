@@ -9,20 +9,21 @@ const CardItem = ({product}) => {
       <Link to={`/item/${product.id}`} style={{textDecoration: 'none'}}>
         <CardMedia
           component="img"
-          sizes='(max-width: 300px) 100vw, 300px'
+          sizes='(max-width: 250px) 100vw, 250px'
           image={product.img}
+          
         />
         <CardHeader 
         title = {product.nombre}
         className={styles.cardHeader}
         disableTypography={true}
-        />        
+        sx={{height: 1/6 }}/>        
       </Link>     
       <CardContent>
         <p className={styles.cardContent}>${product.precio}</p>
       </CardContent>
       <CardActions>
-        <ButtonAddCart/>
+        <ButtonAddCart producto={product} cantidad={1}/>
       </CardActions>
 
     </Card>

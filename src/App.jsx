@@ -1,11 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import db from '../db/firebase-config.js';
-import { useState, useEffect } from 'react';
-import {collection, doc, getDocs} from 'firebase/firestore';
+import { useState, useEffect, createContext } from 'react';
+import { collection, doc, getDocs } from 'firebase/firestore';
 import ItemDetailContainer from './Components/ItemDetailContainer'
 import ItemListContainer from './Components/ItemListContainer'
 import NavBar from './Components/NavBar'
+import { NotFound } from './Components/NotFound';
+import { CartContext } from './contexts/Cart/CartContext';
+import CartState from './contexts/Cart/CartState';
 
 function App() {
 
@@ -57,43 +60,55 @@ function App() {
   //   },
   // ]
 
+
   const [products, setProducts] = useState([]);
   const itemsCollectionRef = collection(db, 'items');
 
-  const categoriesName = [... new Set(products.map(product => product.categoria))]
-  const categories = categoriesName.map((categoria,index)=>{
-    return {
-      id: index + 1,
-      nombre: categoria,
-      url: '/category/'+ (index + 1),
-    }
-  })
 
-  const getItems = async () =>{
+  const getItems = async () => {
     const itemsCollection = await getDocs(itemsCollectionRef);
-    setProducts(itemsCollection.docs.map(doc => ({...doc.data(), id: doc.id})));
+    setProducts(itemsCollection.docs.map(doc => ({ ...doc.data(), id: doc.id })));
   }
 
-  console.log(categories);
+  const categories = [
+    {
+      nombre: "Estrategia",
+      url: "/category/Estrategia",
+    },
+    {
+      nombre: "Party Game",
+      url: "/category/Party Game",
+    },
+    {
+      nombre: "Scape Room",
+      url: "/category/Scape Room",
+    },
+  ]
 
-  useEffect(()=>{
+  useEffect(() => {
     getItems();
+    console.log("Se han cargados los datos de la bd!");
   }, [])
 
+  //Se define el carrito de compras con context:
+  const cart = [];
+
   return (
-    <div className="App">
-        <NavBar categorias={categories}/>
-        <Routes>
-          <Route path='/' element={
-          <ItemListContainer products = {products} categories={categories}/>
-          }/>
-          <Route path='/item/:id' element={<ItemDetailContainer products={products} categories={categories} />}          
-          />
-          <Route path='/category/:id' element={<ItemListContainer products={products} categories={categories}/>}          
-          />
-          
-        </Routes>        
-    </div>
+    <CartState>
+      <div className="App">
+          <NavBar categorias={categories} />
+          <Routes>
+            <Route path='/' element={
+              <ItemListContainer products={products} categories={categories} />
+            } />
+            <Route path='/item/:id' element={<ItemDetailContainer />}
+            />
+            <Route path='/category/:id' element={<ItemListContainer products={products} categories={categories} />}
+            />
+            <Route path="/404" element={<NotFound />} />
+          </Routes>
+      </div>
+    </CartState>
   )
 }
 
