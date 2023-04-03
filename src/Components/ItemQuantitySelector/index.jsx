@@ -5,7 +5,6 @@ import React from 'react'
 const ItemQuantitySelector = ({count, setCount}) => {
 
     const handleAdd = () =>{
-        console.log(count);
         setCount(count + 1);
     }
 
@@ -13,8 +12,6 @@ const ItemQuantitySelector = ({count, setCount}) => {
         if(count > 1)
         setCount(count - 1);
     }
-
-    console.log(count);
 
   return (
     <div>

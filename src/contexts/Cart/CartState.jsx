@@ -14,7 +14,6 @@ const CartState = ({children}) =>{
 
     const addToCart = (producto,cantidad)=>{
         const itemFound = cart.find((item) => item.producto.id == producto.id);
-        console.log("añadiendo al carro " + cantidad);
         if(itemFound == undefined)
         {
             cart.push({producto: producto, cantidad: cantidad});
