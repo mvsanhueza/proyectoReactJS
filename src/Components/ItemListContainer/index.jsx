@@ -18,10 +18,7 @@ const ItemListContainer = ({ products, categories }) => {
       <ul className={styles.contenedor}>
         {
           products.map((producto) => (
-            <li className={styles.item} key={producto.id}>
-              <CardItem key={producto.id} product={producto} />
-            </li>
-
+            <CardItem key={producto.id} product={producto} />
           ))
         }
       </ul>

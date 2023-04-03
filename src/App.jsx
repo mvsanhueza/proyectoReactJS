@@ -9,6 +9,7 @@ import NavBar from './Components/NavBar'
 import { NotFound } from './Components/NotFound';
 import { CartContext } from './contexts/Cart/CartContext';
 import CartState from './contexts/Cart/CartState';
+import { Cart } from './Components/Cart';
 
 function App() {
 
@@ -106,6 +107,7 @@ function App() {
             <Route path='/category/:id' element={<ItemListContainer products={products} categories={categories} />}
             />
             <Route path="/404" element={<NotFound />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
       </div>
     </CartState>
